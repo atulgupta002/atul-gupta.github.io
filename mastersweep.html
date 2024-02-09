@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>MasterSweep</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Atul Gupta</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="./resources/Atul_Gupta_resume.pdf" target="_blank"
+                        class="nav-link text-dark">Resume</a>
+                </li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link text-dark">Projects</a></li>
+                <li class="nav-item"><a href="./awards.html" class="nav-link text-dark">Awards</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link text-dark">Contact</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+        <h3>Description</h3>
+        <p>MasterSweep is a PowerShell-Python based application that I developed at Accenture for a client in
+            Hospitality industry. The client runs a
+            proprietary Property Management System (PMS) application deployed on windows machines. MasterSweep automates
+            patch deployment
+            process for this PMS application. This includes downloading and configuring the patches, copying the patches
+            on the client servers,
+            installing and monitoring the install, verifying that the install is successful and generating a report for
+            all the servers with the
+            patch installation status. For large deployments (> 1000 servers), it also emailed the support team once the
+            job was finished.
+            The application expected patch number, list of servers to work on and user choice of options as primary
+            inputs. The entire process was divided
+            into 4 variables as follows:</p>
+        <ul>
+            <li>copy</li>
+            <li>install</li>
+            <li>verify</li>
+            <li>uninstall</li>
+        </ul>
+
+        <p>The function definitions are relatively straightforward and explain the process well. The order of operations
+            is hard-coded and is kept as follows:</p>
+        <p>copy -> uninstall -> install -> verify</p>
+
+        <ul>
+            <li>The <b>"copy"</b> function downloads, configures and copies patch on all the windows servers that the
+                user has specified. It also generates a
+                report stating whether the copy operation was successful on a particular server.</li>
+            <li style="list-style-type:none;">&emsp; </li>
+            <li>The <b>"install"</b> function installs the patch in batches of 128 servers and monitors the install. It
+                also generates a report quoting each server
+                by name and a simple boolean (true/false) indicating whether the install was successfully triggered on
+                that server. Note that it does not
+                say whether the install was successful, only that it was triggered.</li>
+            <li style="list-style-type:none;">&emsp; </li>
+            <li>The <b>"verify"</b> function checks that the patch install is successful both in the windows registry
+                and client databases. It then generates a report
+                with its findings. Additionally, it generates a separate report containing the names of all servers
+                where the install has failed making it easier
+                to gather relevent information from the process.</li>
+            <li style="list-style-type:none;">&emsp; </li>
+            <li>The <b>"uninstall"</b> function uninstalls the specified patch on the specified servers. Like the
+                install function, it
+                generates a report stating the status of its triggers. The install and uninstall functions can be
+                combined with verify function to perform
+                a specific task on a list of servers and check the result in a convenient way.</li>
+        </ul>
+
+        <h3>Utility and benefits</h3>
+
+        <ol>
+            <li>Automates the patch deployment process from start to finish.</li>
+            <li>Reduces the human effort required in the process from hours of manual work to a couple of minutes.</li>
+            <li>Reduces the possibility of human errors.</li>
+            <li>Codifies the process and makes sure that the process is followed by the book every time it is run.</li>
+            <li>The application is completely configurable and allows the user to start the process from wherever they
+                want. If they want to copy but not
+                install yet, it can be done. If they have already copied, they can save time by triggering only install.
+            </li>
+            <li>Although each functions stands on its own merit, it can be combined with other functions to create a
+                more elaborate and meaningful task. For
+                example:- since in the order-of-operations, the uninstall function is before the
+                install function but after the copy function, it can be combined with install to quickly re-install a
+                patch if needed.</li>
+            <li>The verify function automates not only a part of the process, but also the post-completion tasks of
+                analysing process reports by
+                generating a report that gives a high-level overview of the results in the form of names of servers
+                where the process has failed.</li>
+        </ol>
+
+        <h3>Upgrades and enhancements</h3>
+
+        <p>Once the minimum viable version of MasterSweep was launced and was met with a resounding success from every
+            team member, I added a bunch of
+            other functions to make it even for intuitive and useful. These ranged from upgrades to the existing
+            process, enhancements to the MasterSweep's
+            functionality and also helper functions that make using the MasterSweep more user-friendly. Three of these
+            functions are described below:</p>
+
+        <ul>
+            <li>deploy-fix</li>
+            <li>validate</li>
+            <li>delete-except</li>
+        </ul>
+
+        <p>The functions are described as follows:</p>
+
+        <ul>
+            <li>The <b>"deploy-fix"</b> function deploys a common fix on each server that fixes a known issue that
+                causes the patch deployment process to fail.
+                Merely enabling this function before deployment reduces the patch failures by over 95% (data collected
+                between Jan 2020 and April 2020).</li>
+            <li>The client operates worldwide and different local outlets have different business hours.
+                The <b>"validate"</b> function checks local time on the client server and skips it from the queue if the
+                client is at its peak business hours.
+                The skipped server is then added to the list of failures to maintain consistency in data. This ensures
+                that the client is not hassled during
+                their business hours in case of a major failure.</li>
+            <li>The <b>"delete-except"</b> function is not visible to the user. It is always enabled and executes every
+                time the application is run.
+                This function keeps all the critical files that the application needs to run and deletes everything else
+                from its parent folder. This ensures
+                that the application folder is neat and organised and the application is easier to engage.</li>
+        </ul>
+
+        <h3>Results</h3>
+
+        <ul>
+            <li>Patch deployment errors reduced by over 95% (data collected between Jan 2020 and April 2020)</li>
+            <li>Manual effort required in the process reduced from 6 hours (typically) per day to a couple of minutes.
+            </li>
+            <li>Number of team members engaged in the process reduced from 3 to 1.</li>
+            <li>Human errors nearly eliminated.</li>
+            <li>Speed of the procss reduced by 50% from 6 hours to 3 hours.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link px-2 text-body-secondary">Projects</a>
+                </li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link px-2 text-body-secondary">Contact</a></li>
+            </ul>
+            <p class="text-center text-body-secondary">Atul Gupta</p>
+        </footer>
+    </div>
+</body>
+
+</html>

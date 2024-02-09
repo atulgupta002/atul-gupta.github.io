@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="contact.css">
+    <title>Server MSI</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Atul Gupta</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="./resources/Atul_Gupta_resume.pdf" target="_blank"
+                        class="nav-link text-dark">Resume</a>
+                </li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link text-dark">Projects</a></li>
+                <li class="nav-item"><a href="./awards.html" class="nav-link text-dark">Awards</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link text-dark">Contact</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+        <h3>Description</h3>
+        <p>Server MSI is the process of the removing all the client infrastructure from a windows server and
+            re-installing it from the ground up. It is used as a last resort to fix issues which are otherwise extremely
+            challenging to diagnose. The process takes a significant amount of time and due to its complexity it is
+            prone to human errors and missteps.</p>
+
+        <h3>The Challenge</h3>
+        <p>Automating this process is a challenging task because:</p>
+        <ul>
+            <li>It is sensitive and slight misstep can result in significant issues later on.</li>
+            <li>It touches a lot of different aspects of a Windows server application.</li>
+            <li>It requires human authentication to start.</li>
+        </ul>
+        <h3>Utility and Benefits</h3>
+        <p>With all its challenges, automating this process provides the following benefits:</p>
+        <ul>
+            <li>Significantly reduces downtime for the client.</li>
+            <li>Speeds up the process end-to-end.</li>
+            <li>Greatly reduces the chance of human error.</li>
+            <li>Reduces the technical expertise required to perform the process. The process becomes viable for Lean Six
+                Sigma.</li>
+        </ul>
+        <h3>Process Steps</h3>
+        <p>
+        <ul>
+            <li>Backup all the required data.</li>
+            <li>Take a snapshot of the server and set a recovery point.</li>
+            <li>Rollback all enhancements to client server.</li>
+            <li>Uninstall application core.</li>
+            <li>Clean up registry.</li>
+            <li>Reset reporting and monitoring services.</li>
+            <li>Setup login authentication as a failsafe.</li>
+            <li>Reboot the server.</li>
+            <li>Reinstall the application core.</li>
+            <li>Push all enhancements.</li>
+            <li>Remove all process related changes made before reboot.</li>
+            <li>Restore the data.</li>
+            <li>Verify that the process was done correctly.</li>
+        </ul>
+        </p>
+        <h3>Results</h3>
+        <ul>
+            <li>Process downtime reduced by 70%.</li>
+            <li>Total monthly service downtime reduced by 20%.</li>
+            <li>Manual work required during the process reduced by 95%.</li>
+            <li>Error rate reduced by 95%.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link px-2 text-body-secondary">Projects</a>
+                </li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link px-2 text-body-secondary">Contact</a></li>
+            </ul>
+            <p class="text-center text-body-secondary">Atul Gupta</p>
+        </footer>
+    </div>
+</body>
+
+</html>

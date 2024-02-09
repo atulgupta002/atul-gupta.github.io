@@ -1,0 +1,23 @@
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    font-size: 200px;
+}
+
+.skills {
+    display: flex;
+}
+
+.accenture,
+.tech9logy,
+.stevens,
+.vit,
+.skill-list {
+    list-style-type: none;
+}
+
+.header-container {
+    height: 80vh;
+}
