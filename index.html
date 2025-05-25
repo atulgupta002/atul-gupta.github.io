@@ -197,7 +197,7 @@
     
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-bs-theme', 'dark');
-            toggleButton.textContent = '☀️ Light Mode';
+            toggleButton.textContent = '☀️ Light';
         }
     
         toggleButton.addEventListener('click', () => {
@@ -205,11 +205,11 @@
             if (isDark) {
                 document.documentElement.setAttribute('data-bs-theme', 'light');
                 localStorage.setItem('theme', 'light');
-                toggleButton.textContent = '🌙 Dark Mode';
+                toggleButton.textContent = '🌙 Dark';
             } else {
                 document.documentElement.setAttribute('data-bs-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
-                toggleButton.textContent = '☀️ Light Mode';
+                toggleButton.textContent = '☀️ Light';
             }
         });
     </script>
