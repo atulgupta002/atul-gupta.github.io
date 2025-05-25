@@ -192,22 +192,24 @@
         crossorigin="anonymous"></script>
 
     <script>
-        const toggleSwitch = document.getElementById('darkModeToggle');
-        const htmlElement = document.documentElement;
-        
-        // Load theme from localStorage
-        if (localStorage.getItem('theme') === 'dark') {
-            htmlElement.setAttribute('data-bs-theme', 'dark');
-            toggleSwitch.checked = true;
-            }
-        
-        toggleSwitch.addEventListener('change', function () {
-            if (this.checked) {
-                htmlElement.setAttribute('data-bs-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                htmlElement.setAttribute('data-bs-theme', 'light');
+        const toggleButton = document.getElementById('darkModeToggle');
+        const currentTheme = localStorage.getItem('theme');
+    
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            toggleButton.textContent = '☀️ Light Mode';
+        }
+    
+        toggleButton.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
                 localStorage.setItem('theme', 'light');
+                toggleButton.textContent = '🌙 Dark Mode';
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                toggleButton.textContent = '☀️ Light Mode';
             }
         });
     </script>
