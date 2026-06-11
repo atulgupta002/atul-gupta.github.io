@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Editor/tool configs
+.magicodeconfig
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
